@@ -22,10 +22,9 @@ class DestinationImageResource extends JsonResource
         elseif (Storage::disk('public')->exists($this->image_path)) {
             $imageUrl = asset('storage/' . $this->image_path);
         }
-        // Fallback: placeholder dari picsum.photos berdasarkan ID
+        // Tidak ada gambar — return null
         else {
-            $seed = $this->id ?? 1;
-            $imageUrl = "https://picsum.photos/seed/{$seed}/800/600";
+            $imageUrl = null;
         }
 
         return [
