@@ -31,7 +31,6 @@ Route::get('categories', [CategoryController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('auth/logout', [AuthController::class, 'logout']);
     Route::post('reviews', [ReviewController::class, 'store']);
-    Route::post('destinations/{id}/photos', [PhotoController::class, 'store']);
 
     // User Profile
     Route::get('user/profile', [UserProfileController::class, 'show']);
@@ -61,4 +60,8 @@ Route::middleware(['auth:sanctum', 'admin'])->prefix('admin')->group(function ()
     Route::post('categories', [Admin\CategoryController::class, 'store']);
     Route::put('categories/{category}', [Admin\CategoryController::class, 'update']);
     Route::delete('categories/{category}', [Admin\CategoryController::class, 'destroy']);
+
+    // Destination Photos
+    Route::post('destinations/{id}/photos', [PhotoController::class, 'store']);
+    Route::delete('destinations/{destinationId}/photos/{photoId}', [PhotoController::class, 'destroy']);
 });

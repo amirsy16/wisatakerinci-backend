@@ -13,6 +13,7 @@ class DestinationImage extends Model
     protected $fillable = [
         'destination_id',
         'image_path',
+        'cloudinary_public_id',
         'is_primary',
     ];
 
