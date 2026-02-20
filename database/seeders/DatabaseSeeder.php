@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Destination;
-use App\Models\DestinationImage;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -130,8 +129,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($destinationData as $data) {
-            $catSlugs    = $data['categories'];
-            $primaryImage = $data['primary_image'] ?? null;
+            $catSlugs = $data['categories'];
             unset($data['categories'], $data['primary_image']);
 
             $destination = Destination::create($data);
@@ -139,21 +137,6 @@ class DatabaseSeeder extends Seeder
             // Attach categories
             $catIds = $categories->whereIn('slug', $catSlugs)->pluck('id');
             $destination->categories()->attach($catIds);
-
-            // Create images (use real image if provided, otherwise placeholder)
-            $primaryPath = $primaryImage ?? 'destinations/placeholder-' . $destination->slug . '-1.jpg';
-            DestinationImage::create([
-                'destination_id' => $destination->id,
-                'image_path'     => $primaryPath,
-                'is_primary'     => true,
-            ]);
-            for ($i = 2; $i <= 3; $i++) {
-                DestinationImage::create([
-                    'destination_id' => $destination->id,
-                    'image_path'     => 'destinations/placeholder-' . $destination->slug . '-' . $i . '.jpg',
-                    'is_primary'     => false,
-                ]);
-            }
 
             // Create 5 approved reviews per destination
             Review::factory(5)
