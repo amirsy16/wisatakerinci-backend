@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '06:00 - 18:00',
                 'status'       => 'active',
                 'categories'   => ['alam-pegunungan', 'petualangan'],
+                'primary_image'=> 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80',
             ],
             [
                 'name'         => 'Danau Kerinci',
@@ -64,7 +65,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '07:00 - 17:00',
                 'status'       => 'active',
                 'categories'   => ['danau-sungai', 'ekowisata'],
-                'primary_image'=> 'destinations/danaukerinci.jpg',
+                'primary_image'=> '/images/destinations/danaukerinci.jpg',
             ],
             [
                 'name'         => 'Air Terjun Telun Berasap',
@@ -76,7 +77,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '07:00 - 17:00',
                 'status'       => 'active',
                 'categories'   => ['air-terjun', 'ekowisata'],
-                'primary_image'=> 'destinations/airterjun.jpg',
+                'primary_image'=> '/images/destinations/airterjun.jpg',
             ],
             [
                 'name'         => 'Kebun Teh Kayu Aro',
@@ -88,7 +89,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '08:00 - 17:00',
                 'status'       => 'active',
                 'categories'   => ['agrowisata', 'ekowisata'],
-                'primary_image'=> 'destinations/kayuaro.jpg',
+                'primary_image'=> '/images/destinations/kayuaro.jpg',
             ],
             [
                 'name'         => 'Danau Gunung Tujuh',
@@ -100,7 +101,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '06:00 - 18:00',
                 'status'       => 'active',
                 'categories'   => ['danau-sungai', 'alam-pegunungan', 'petualangan'],
-                'primary_image'=> 'destinations/gunungtujuh.jpg',
+                'primary_image'=> '/images/destinations/gunungtujuh.jpg',
             ],
             [
                 'name'         => 'Air Terjun Pancuran Rayo',
@@ -112,7 +113,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '07:00 - 16:00',
                 'status'       => 'active',
                 'categories'   => ['air-terjun'],
-                'primary_image'=> 'destinations/pancuranrayo.jpg',
+                'primary_image'=> '/images/destinations/pancuranrayo.jpg',
             ],
             [
                 'name'         => 'Bukit Kayangan',
@@ -124,7 +125,7 @@ class DatabaseSeeder extends Seeder
                 'open_hours'   => '06:00 - 18:00',
                 'status'       => 'active',
                 'categories'   => ['alam-pegunungan'],
-                'primary_image'=> 'destinations/bukitkayangan1.jpg',
+                'primary_image'=> '/images/destinations/bukitkayangan1.jpg',
             ],
         ];
 
