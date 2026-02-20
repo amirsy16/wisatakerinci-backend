@@ -11,7 +11,7 @@
 |------|-------|
 | Frontend Framework | Next.js (App Router atau Pages Router) |
 | Backend | Laravel 12 di Railway |
-| Backend Base URL (production) | **lihat section 2** |
+| Backend Base URL (production) | `https://wisatakerinci-backend-production.up.railway.app` |
 | Frontend Domain (production) | `https://gokerinci.vercel.app` |
 | Auth Method | Bearer Token (Sanctum) — simpan di `localStorage` |
 | CORS | Sudah dikonfigurasi di backend untuk `gokerinci.vercel.app` |
@@ -23,7 +23,7 @@
 Backend Laravel sudah di-deploy ke Railway. URL production tersedia di Railway Dashboard:
 
 - Buka [railway.app](https://railway.app) → project → service **wisatakerinci-backend** → tab **Settings** → **Networking**
-- Format URL: `https://xxxx.up.railway.app`
+- Format URL: `https://wisatakerinci-backend-production.up.railway.app`
 
 **Gunakan URL ini sebagai nilai `NEXT_PUBLIC_API_URL` di environment variables Vercel.**
 
@@ -34,7 +34,7 @@ Backend Laravel sudah di-deploy ke Railway. URL production tersedia di Railway D
 Buat file `.env.local` di root project Next.js:
 
 ```env
-NEXT_PUBLIC_API_URL=https://xxxx.up.railway.app
+NEXT_PUBLIC_API_URL=https://wisatakerinci-backend-production.up.railway.app
 ```
 
 > **Catatan:** Prefix `NEXT_PUBLIC_` wajib agar variable bisa diakses di browser (client-side).  
@@ -143,7 +143,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*.up.railway.app',
+        hostname: 'wisatakerinci-backend-production.up.railway.app',
         pathname: '/storage/**',
       },
       {
@@ -182,7 +182,7 @@ Sebelum klik **Deploy**, klik **Environment Variables** dan tambahkan:
 
 | Variable | Value |
 |----------|-------|
-| `NEXT_PUBLIC_API_URL` | `https://xxxx.up.railway.app` (URL Railway kamu) |
+| `NEXT_PUBLIC_API_URL` | `https://wisatakerinci-backend-production.up.railway.app` |
 
 > Centang semua environment: **Production**, **Preview**, **Development**
 
@@ -201,8 +201,8 @@ Setelah deploy selesai:
 `image_url` dan `avatar_url` dari backend sudah berupa **URL lengkap**.  
 Di production, URL tersebut dalam format:
 ```
-https://xxxx.up.railway.app/storage/destinations/filename.jpg
-https://xxxx.up.railway.app/storage/avatars/filename.jpg
+https://wisatakerinci-backend-production.up.railway.app/storage/destinations/filename.jpg
+https://wisatakerinci-backend-production.up.railway.app/storage/avatars/filename.jpg
 ```
 
 Gunakan langsung sebagai `src` di Next.js Image component:
